@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	const provider = new MyInlineCompletionItemProvider();
-	vscode.languages.registerInlineCompletionItemProvider('javascript', provider);
+	vscode.languages.registerInlineCompletionItemProvider({pattern: "**", provider);
 
 	context.subscriptions.push(disposable);
 }
