@@ -28,20 +28,20 @@ export class MyInlineCompletionItemProvider implements vscode.InlineCompletionIt
 	let textBefore = document.getText(new vscode.Range(new vscode.Position(0, 0), position));
 	const textAfter = document.getText(new vscode.Range(position, new vscode.Position(Number.MAX_VALUE, Number.MAX_VALUE)));
 
-	console.log(process.env.OPENAI_API_KEY);
-	const l = textBefore.length;
-	if(textBefore[l-1] !== '?'){
-		return [];
-	}
+// 	console.log(process.env.OPENAI_API_KEY);
+// 	const l = textBefore.length;
+// 	if(textBefore[l-1] !== '?'){
+// 		return [];
+// 	}
 
-	textBefore = textBefore.substring(0, l-1);
-	console.log(textBefore);
+	//textBefore = textBefore.substring(0, l-1);
+	//console.log(textBefore);
 
 	let textSuggestions = [];
 	try{
 
 		const configuration = new Configuration({
-		apiKey: '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',
+		apiKey: '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', 		//put your own api key here. you can get it from openai website
 		});
 		const openai = new OpenAIApi(configuration);
 	
@@ -66,7 +66,7 @@ export class MyInlineCompletionItemProvider implements vscode.InlineCompletionIt
 			textSuggestions.push(val);
 		}
 
-		console.log(textSuggestions);
+		//console.log(textSuggestions);
 
 	}
 	catch(e){
